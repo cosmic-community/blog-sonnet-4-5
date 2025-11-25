@@ -4,6 +4,7 @@ import './globals.css'
 import Link from 'next/link'
 import { getAllCategories } from '@/lib/cosmic'
 import CosmicBadge from '@/components/CosmicBadge'
+import { Category } from '@/types'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,7 +38,7 @@ export default async function RootLayout({
                   <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     Home
                   </Link>
-                  {categories.slice(0, 3).map((category) => (
+                  {categories.slice(0, 3).map((category: Category) => (
                     <Link
                       key={category.id}
                       href={`/categories/${category.slug}`}
@@ -68,7 +69,7 @@ export default async function RootLayout({
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Categories</h3>
                 <ul className="space-y-2">
-                  {categories.map((category) => (
+                  {categories.map((category: Category) => (
                     <li key={category.id}>
                       <Link
                         href={`/categories/${category.slug}`}
